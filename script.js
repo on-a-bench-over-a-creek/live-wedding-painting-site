@@ -1,3 +1,4 @@
+// Shared rendering helpers keep the page templates consistent.
 const image = (path, alt) => `<img src="https://images.unsplash.com/${path}?auto=format&fit=crop&w=1100&q=82" alt="${alt}" loading="lazy">`;
 const button = (label, route, secondary = false) => `<a class="button${secondary ? " secondary" : ""}" href="#${route}">${label}</a>`;
 const galleryImages = [
@@ -30,6 +31,7 @@ function packagesPage() {
 function contactPage() {
   return `<div class="page">${pageHeader("Let's make something lasting", "Tell me about your day.", "")}<section class="section"><div class="container contact-layout"><div class="contact-aside"><h2>Start with a hello.</h2><p>[Placeholder contact copy] Share a few details about your wedding, and I will get back to you with availability and next steps.</p><p><a class="text-link" href="mailto:elleonrivers@gmail.com">elleonrivers@gmail.com</a></p></div><form id="contact-form" novalidate><div class="form-grid"><div class="field"><label for="name">First and last name *</label><input id="name" name="name" autocomplete="name" required></div><div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div><div class="field full"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="date">Date of wedding *</label><input id="date" name="date" type="date" required></div><div class="field"><label for="package">Chosen package *</label><select id="package" name="package" required><option value="">Select a package</option><option>The Sketch</option><option>The Full Story</option><option>The Keepsake</option><option>Not sure yet</option></select></div><div class="field full"><label for="details">Tell me the details *</label><textarea id="details" name="details" required placeholder="Venue, guest count, the moment you are imagining..."></textarea></div></div><div class="form-actions"><button class="button" type="submit">Send inquiry</button><p class="form-status" id="form-status" role="status" aria-live="polite"></p></div></form></div></section></div>`;
 }
+// Hash routing keeps the site static while giving each view its own URL.
 const app = document.querySelector("#app");
 const menu = document.querySelector("#site-menu");
 const menuToggle = document.querySelector(".menu-toggle");
@@ -44,6 +46,8 @@ function render() {
   menu.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false"); app.focus({ preventScroll: true });
   if (route === "contact") document.querySelector("#contact-form").addEventListener("submit", submitForm);
 }
+
+// Build a mailto link only after native browser validation succeeds.
 function submitForm(event) {
   event.preventDefault(); const form = event.currentTarget; const status = document.querySelector("#form-status");
   if (!form.checkValidity()) { form.reportValidity(); status.textContent = "Please complete the required fields."; return; }

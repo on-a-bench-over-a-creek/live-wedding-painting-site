@@ -12,6 +12,7 @@
 	<script src="script.js" defer></script>
 </head>
 <body>
+	<!-- Sticky site-wide navigation -->
 	<header class="site-header">
 		<nav class="nav-shell" aria-label="Main navigation">
 			<a class="wordmark mobile-wordmark" href="#home" aria-label="Love Told home"><span>Love Told</span><small>live wedding painting by Hannah</small></a>
@@ -21,15 +22,19 @@
 					<a data-route="home" href="#home">Home</a>
 					<a data-route="painting" href="#painting">The Experience</a>
 					<a data-route="gallery" href="#gallery">Gallery</a>
+				</div>
+				<a class="wordmark desktop-wordmark" href="#home" aria-label="Love Told home"><span>Love Told</span><small>live wedding painting by Hannah</small></a>
+				<div class="nav-group nav-group-right">
 					<a data-route="packages" href="#packages">Packages</a>
 					<a data-route="contact" href="#contact">Contact</a>
 					<a data-route="about" href="#about">About Me</a>
 				</div>
-				<a class="wordmark desktop-wordmark" href="#home" aria-label="Love Told home"><span>Love Told</span><small>live wedding painting by Hannah</small></a>
 			</div>
 		</nav>
 	</header>
+	<!-- JavaScript renders the current hash route into this landmark -->
 	<main id="app" tabindex="-1"></main>
+	<!-- Shared footer with navigation, contact, and document links -->
 	<footer class="site-footer">
 		<div class="footer-inner">
 			<div class="footer-brand"><a class="footer-mark" href="#home">Love Told</a><p>Live wedding painting by Hannah</p></div>
