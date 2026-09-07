@@ -20,7 +20,37 @@ html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--serif); font-size: 18px; line-height: 1.65; }
 a { color: inherit; }
 button, input, select, textarea { font: inherit; }
-:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
+a:focus,
+a:focus-visible,
+a:active,
+button:focus,
+button:focus-visible,
+button:active,
+input:focus,
+input:focus-visible,
+input:active,
+select:focus,
+select:focus-visible,
+select:active,
+textarea:focus,
+textarea:focus-visible,
+textarea:active,
+main:focus,
+main:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.site-footer a,
+.site-footer a:focus,
+.site-footer a:focus-visible,
+.site-footer a:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
 
 /* Site header and navigation */
 .site-header { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(241, 237, 247, 0.96); backdrop-filter: blur(14px); }
@@ -118,12 +148,13 @@ h3 { font-size: 1.65rem; }
 .form-status { margin: 0; color: var(--purple); font-size: 1rem; }
 
 /* Footer */
-.site-footer { padding: 54px 0; border-top: 1px solid var(--line); background: var(--lavender); }
-.footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; width: min(var(--content-width), calc(100% - 48px)); margin: 0 auto; gap: 45px; color: var(--muted); font-size: 1rem; }
+.site-footer { padding: 54px 0; background: var(--lavender); }
+.footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; width: min(var(--content-width), calc(100% - 48px)); margin: 0 auto; gap: 45px; color: var(--muted); font-size: 0.95rem; }
 .footer-brand p { margin: 8px 0 0; }
 .footer-mark { color: var(--purple) !important; font-size: 1.7rem !important; font-style: italic; }
 .footer-links, .footer-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
-.footer-label { margin: 0 0 8px; color: var(--purple); font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.footer-links a, .footer-contact a, .footer-brand a { font-size: 0.82rem; }
+.footer-label { margin: 0 0 8px; color: var(--purple); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
 /* Motion preferences */
 @keyframes rise {
