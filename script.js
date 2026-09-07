@@ -29,7 +29,7 @@ function packagesPage() {
   return `<div class="page">${pageHeader("Ways to work together", "Choose the shape of your story.", "[Placeholder intro] These sample packages are here to help you begin. Pricing and details can be replaced with your final offerings.")}<section class="section"><div class="container"><div class="package-grid">${packages.map((item, index) => `<article class="package-card${index === 1 ? " featured" : ""}"><p class="eyebrow">Package 0${index + 1}</p><h3>${item[0]}</h3><p>${item[1]}</p><p class="price">${item[2]}</p><ul><li>Live painting during your celebration</li><li>Archival materials</li><li>[Placeholder inclusion]</li></ul>${button("Ask about this", "contact", index !== 1)}</article>`).join("")}</div></div></section></div>`;
 }
 function contactPage() {
-  return `<div class="page">${pageHeader("Let's make someth ing lasting", "Tell me about your day.", "")}<section class="section"><div class="container contact-layout"><div class="contact-aside"><h2>Start with a hello.</h2><p>[Placeholder contact copy] Share a few details about your wedding, and I will get back to you with availability and next steps.</p><p><a class="text-link" href="mailto:elleonrivers@gmail.com">elleonrivers@gmail.com</a></p></div><form id="contact-form" novalidate><div class="form-grid"><div class="field"><label for="name">First and last name *</label><input id="name" name="name" autocomplete="name" required></div><div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div><div class="field full"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="date">Date of wedding *</label><input id="date" name="date" type="date" required></div><div class="field"><label for="package">Chosen package *</label><select id="package" name="package" required><option value="">Select a package</option><option>The Sketch</option><option>The Full Story</option><option>The Keepsake</option><option>Not sure yet</option></select></div><div class="field full"><label for="details">Tell me the details *</label><textarea id="details" name="details" required placeholder="Venue, guest count, the moment you are imagining..."></textarea></div></div><div class="form-actions"><button class="button" type="submit">Send inquiry</button><p class="form-status" id="form-status" role="status" aria-live="polite"></p></div></form></div></section></div>`;
+  return `<div class="page">${pageHeader("Let's make something lasting", "Tell me about your day.", "")}<section class="section"><div class="container contact-layout"><div class="contact-aside"><h2>Start with a hello.</h2><p>[Placeholder contact copy] Share a few details about your wedding, and I will get back to you with availability and next steps.</p></div><form id="contact-form" action="https://formspree.io/f/mljepzep" method="POST" novalidate><div class="form-grid"><div class="field"><label for="name">First and last name *</label><input id="name" name="name" autocomplete="name" required></div><div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div><div class="field full"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="date">Date of wedding *</label><input id="date" name="date" type="date" required></div><div class="field"><label for="package">Chosen package *</label><select id="package" name="package" required><option value="">Select a package</option><option>The Sketch</option><option>The Full Story</option><option>The Keepsake</option><option>Not sure yet</option></select></div><div class="field full"><label for="details">Tell me the details *</label><textarea id="details" name="details" required placeholder="Venue, guest count, the moment you are imagining..."></textarea></div></div><div class="form-actions"><button class="button" type="submit">Send inquiry</button><p class="form-status" id="form-status" role="status" aria-live="polite"></p></div></form></div></section></div>`;
 }
 // Hash routing keeps the site static while giving each view its own URL.
 const app = document.querySelector("#app");
@@ -47,13 +47,20 @@ function render() {
   if (route === "contact") document.querySelector("#contact-form").addEventListener("submit", submitForm);
 }
 
-// Build a mailto link only after native browser validation succeeds.
-function submitForm(event) {
-  event.preventDefault(); const form = event.currentTarget; const status = document.querySelector("#form-status");
+// Submit through Formspree after native browser validation succeeds.
+async function submitForm(event) {
+  event.preventDefault(); const form = event.currentTarget; const status = document.querySelector("#form-status"); const submitButton = form.querySelector("[type=submit]");
   if (!form.checkValidity()) { form.reportValidity(); status.textContent = "Please complete the required fields."; return; }
-  const data = new FormData(form); const body = [`Name: ${data.get("name")}`, `Phone: ${data.get("phone")}`, `Email: ${data.get("email")}`, `Wedding date: ${data.get("date")}`, `Package: ${data.get("package")}`, "", "Details:", data.get("details")].join("\n");
-  location.href = `mailto:elleonrivers@gmail.com?subject=${encodeURIComponent(`Wedding painting inquiry from ${data.get("name")}`)}&body=${encodeURIComponent(body)}`;
-  status.textContent = "Your email app is opening with your inquiry ready to send.";
+  submitButton.disabled = true; status.textContent = "Sending your inquiry...";
+  try {
+    const response = await fetch(form.action, { method: form.method, body: new FormData(form), headers: { Accept: "application/json" } });
+    if (!response.ok) throw new Error("Form submission failed");
+    form.reset(); status.textContent = "Thank you. Your inquiry has been sent.";
+  } catch (error) {
+    status.textContent = "Something went wrong while sending your inquiry. Please try again or email directly.";
+  } finally {
+    submitButton.disabled = false;
+  }
 }
 menuToggle.addEventListener("click", () => { const open = menu.classList.toggle("open"); menuToggle.setAttribute("aria-expanded", String(open)); });
 window.addEventListener("hashchange", render); render();
