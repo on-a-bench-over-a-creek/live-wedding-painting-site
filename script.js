@@ -2,7 +2,7 @@
 const image = (path, alt) => `<img src="https://images.unsplash.com/${path}?auto=format&fit=crop&w=1100&q=82" alt="${alt}" loading="lazy">`;
 const button = (label, route, secondary = false) => `<a class="button${secondary ? " secondary" : ""}" href="#${route}">${label}</a>`;
 const galleryImages = [
-  ["Images/practice.jpg", "A first dance, translated in brushstrokes"],
+  ["Images/practice.jpg", "Studio Work, reference image by Jaclyn Rae"],
   ["Images/virginia.jpg", "The little moments between the big ones"],
   ["Images/philadelphia.jpg", "A room full of happy anticipation"]
 ];
