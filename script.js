@@ -19,7 +19,7 @@ function paintingPage() {
   return `<div class="page">${pageHeader("The experience", "Live wedding painting, from first toast to final detail.", "[Placeholder intro] A simple, joyful way to make your wedding day part of the artwork itself.")}<section class="section"><div class="container"><div class="painting-sections">${cards.map((card, index) => `<article class="painting-card"><p class="eyebrow">0${index + 1}</p><h3>${card[0]}</h3><p>[Placeholder copy] ${card[1]}</p></article>`).join("")}</div><div class="bottom-actions"><a class="button" href="#contact">Book my event</a><a class="text-link" href="CONTRACT.pdf" target="_blank" rel="noopener">Read the placeholder contract PDF ↗</a></div></div></section></div>`;
 }
 function galleryPage() {
-  return `<div class="page">${pageHeader("Selected stories", "Paintings made in the moment.", "[Placeholder intro] Replace these temporary images and captions with your own work as your collection grows.")}<section class="section"><div class="container"><div class="gallery-grid">${galleryImages.map((item, index) => `<figure class="gallery-item"><div class="image-frame"><img src="${item[0]}" alt="${item[1]}" loading="lazy"></div><figcaption class="gallery-caption"><strong>${item[1]}</strong>[Placeholder caption text]</figcaption></figure>`).join("")}</div></div></section></div>`;
+  return `<div class="page">${pageHeader("Selected stories", "Paintings made in the moment.", "[Placeholder intro] Replace these temporary images and captions with your own work as your collection grows.")}<section class="section"><div class="container"><div class="gallery-grid">${galleryImages.map((item, index) => `<figure class="gallery-item"><div class="image-frame"><button class="gallery-trigger" type="button" data-image="${item[0]}" data-alt="${item[1]}" aria-label="Enlarge ${item[1]}"><img src="${item[0]}" alt="${item[1]}" loading="lazy"></button></div><figcaption class="gallery-caption"><strong>${item[1]}</strong>[Placeholder caption text]</figcaption></figure>`).join("")}</div></div></section><dialog class="gallery-lightbox" id="gallery-lightbox" aria-label="Enlarged gallery image"><button class="lightbox-close" type="button" aria-label="Close enlarged image">×</button><img class="lightbox-image" alt=""></dialog></div>`;
 }
 function packagesPage() {
   const packages = [["The Sketch", "A beautiful introduction to live painting for intimate celebrations.", "$1,800"], ["The Full Story", "The signature experience: a generous canvas, your chosen scene, and the whole room invited in.", "$2,800"], ["The Keepsake", "A larger-scale heirloom with extra details and time for the little moments.", "$3,800"]];
@@ -42,6 +42,22 @@ function render() {
   document.querySelectorAll("[data-route]").forEach(link => link.classList.toggle("active", link.dataset.route === route));
   menu.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false"); app.focus({ preventScroll: true });
   if (route === "contact") document.querySelector("#contact-form").addEventListener("submit", submitForm);
+  if (route === "gallery") setupGalleryLightbox();
+}
+
+function setupGalleryLightbox() {
+  const lightbox = document.querySelector("#gallery-lightbox");
+  const lightboxImage = lightbox.querySelector(".lightbox-image");
+  const closeButton = lightbox.querySelector(".lightbox-close");
+  document.querySelectorAll(".gallery-trigger").forEach(trigger => trigger.addEventListener("click", () => {
+    lightboxImage.src = trigger.dataset.image;
+    lightboxImage.alt = trigger.dataset.alt;
+    lightbox.showModal();
+  }));
+  closeButton.addEventListener("click", () => lightbox.close());
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) lightbox.close();
+  });
 }
 
 // Submit through Formspree after native browser validation succeeds.
