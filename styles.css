@@ -78,7 +78,7 @@ h3 { font-size: 1.65rem; }
 .intro { max-width: 650px; color: var(--muted); font-size: 1.3rem; }
 
 /* Hero and calls to action */
-.hero { display: flex; align-items: flex-end; min-height: 640px; margin: 0; background: linear-gradient(90deg, rgba(33, 22, 40, 0.6), transparent 75%), url("Images/horse%20banner.JPG") center / cover; }
+.hero { display: flex; align-items: flex-end; min-height: 640px; margin: 0; background: linear-gradient(90deg, rgba(33, 22, 40, 0.6), transparent 75%), url("Images/Banner%20darkened.jpg") center / cover; }
 .hero-content { width: min(var(--content-width), calc(100% - 48px)); margin: 0 auto; padding: 88px 0 82px; color: #fff; animation: rise 0.85s both ease-out; }
 .hero .eyebrow { color: #f2dce4; }
 .hero h1 { max-width: 680px; margin-bottom: 0; }
