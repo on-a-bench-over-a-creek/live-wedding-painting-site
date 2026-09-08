@@ -4,10 +4,7 @@ const button = (label, route, secondary = false) => `<a class="button${secondary
 const galleryImages = [
   ["photo-1519225421980-715cb0215aed", "A first dance, translated in brushstrokes"],
   ["photo-1511285560929-80b456fea0bc", "The little moments between the big ones"],
-  ["photo-1464366400600-7168b8af9bc3", "A room full of happy anticipation"],
-  ["photo-1519741497674-611481863552", "A ceremony scene, painted live"],
-  ["photo-1507504031003-b417219a0fde", "A quiet portrait of a very big day"],
-  ["photo-1520854221256-17451cc331bf", "The view from the artist's easel"]
+  ["photo-1464366400600-7168b8af9bc3", "A room full of happy anticipation"]
 ];
 const pageHeader = (eyebrow, title, intro) => `<header class="page-header"><div class="container"><p class="eyebrow">${eyebrow}</p><h1>${title}</h1>${intro ? `<p class="intro">${intro}</p>` : ""}</div></header>`;
 
