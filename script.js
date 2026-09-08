@@ -2,9 +2,9 @@
 const image = (path, alt) => `<img src="https://images.unsplash.com/${path}?auto=format&fit=crop&w=1100&q=82" alt="${alt}" loading="lazy">`;
 const button = (label, route, secondary = false) => `<a class="button${secondary ? " secondary" : ""}" href="#${route}">${label}</a>`;
 const galleryImages = [
-  ["photo-1519225421980-715cb0215aed", "A first dance, translated in brushstrokes"],
-  ["photo-1511285560929-80b456fea0bc", "The little moments between the big ones"],
-  ["photo-1464366400600-7168b8af9bc3", "A room full of happy anticipation"]
+  ["Images/practice.jpg", "A first dance, translated in brushstrokes"],
+  ["Images/virginia.jpg", "The little moments between the big ones"],
+  ["Images/philadelphia.jpg", "A room full of happy anticipation"]
 ];
 const pageHeader = (eyebrow, title, intro) => `<header class="page-header"><div class="container"><p class="eyebrow">${eyebrow}</p><h1>${title}</h1>${intro ? `<p class="intro">${intro}</p>` : ""}</div></header>`;
 
@@ -19,7 +19,7 @@ function paintingPage() {
   return `<div class="page">${pageHeader("The experience", "Live wedding painting, from first toast to final detail.", "[Placeholder intro] A simple, joyful way to make your wedding day part of the artwork itself.")}<section class="section"><div class="container"><div class="painting-sections">${cards.map((card, index) => `<article class="painting-card"><p class="eyebrow">0${index + 1}</p><h3>${card[0]}</h3><p>[Placeholder copy] ${card[1]}</p></article>`).join("")}</div><div class="bottom-actions"><a class="button" href="#contact">Book my event</a><a class="text-link" href="CONTRACT.pdf" target="_blank" rel="noopener">Read the placeholder contract PDF ↗</a></div></div></section></div>`;
 }
 function galleryPage() {
-  return `<div class="page">${pageHeader("Selected stories", "Paintings made in the moment.", "[Placeholder intro] Replace these temporary images and captions with your own work as your collection grows.")}<section class="section"><div class="container"><div class="gallery-grid">${galleryImages.map((item, index) => `<figure class="gallery-item"><div class="image-frame">${image(item[0], `Placeholder gallery image ${index + 1}`)}</div><figcaption class="gallery-caption"><strong>${item[1]}</strong>[Placeholder caption text]</figcaption></figure>`).join("")}</div></div></section></div>`;
+  return `<div class="page">${pageHeader("Selected stories", "Paintings made in the moment.", "[Placeholder intro] Replace these temporary images and captions with your own work as your collection grows.")}<section class="section"><div class="container"><div class="gallery-grid">${galleryImages.map((item, index) => `<figure class="gallery-item"><div class="image-frame"><img src="${item[0]}" alt="${item[1]}" loading="lazy"></div><figcaption class="gallery-caption"><strong>${item[1]}</strong>[Placeholder caption text]</figcaption></figure>`).join("")}</div></div></section></div>`;
 }
 function packagesPage() {
   const packages = [["The Sketch", "A beautiful introduction to live painting for intimate celebrations.", "$1,800"], ["The Full Story", "The signature experience: a generous canvas, your chosen scene, and the whole room invited in.", "$2,800"], ["The Keepsake", "A larger-scale heirloom with extra details and time for the little moments.", "$3,800"]];
