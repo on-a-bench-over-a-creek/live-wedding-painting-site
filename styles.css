@@ -88,6 +88,8 @@ h3 { font-size: 1.65rem; }
 .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 58px; padding: 15px 28px; border: 1px solid var(--purple); background: var(--purple); color: #fff; font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.07em; text-decoration: none; text-transform: uppercase; transition: background 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s; }
 .button:hover { background: var(--purple-dark); box-shadow: 0 7px 16px rgba(77, 49, 94, 0.22); transform: translateY(-2px); }
+.hero .actions > .button:first-child { border-color: var(--ink); background: var(--ink); }
+.hero .actions > .button:first-child:hover { background: #1f1c22; }
 .button.secondary { background: transparent; color: var(--purple-dark); }
 .button.secondary:hover { color: #fff; }
 .hero .button.secondary { border-color: #fff; color: #fff; }
