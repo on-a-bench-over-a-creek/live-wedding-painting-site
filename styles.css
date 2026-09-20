@@ -58,7 +58,8 @@ main:focus-visible {
 .site-menu { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: 100%; gap: 28px; }
 .nav-group { display: flex; align-items: center; gap: clamp(10px, 2.6vw, 27px); }
 .nav-group-right { justify-content: flex-end; }
-.nav-group a, .footer-inner a { color: var(--purple-dark); font-size: 1.15rem; letter-spacing: 0.03em; text-decoration: none; white-space: nowrap; transition: color 0.25s, transform 0.25s; }
+.nav-group a { color: var(--ink); font-size: 1.15rem; letter-spacing: 0.03em; text-decoration: none; white-space: nowrap; transition: color 0.25s, transform 0.25s; }
+.footer-inner a { color: var(--purple-dark); font-size: 1.15rem; letter-spacing: 0.03em; text-decoration: none; white-space: nowrap; transition: color 0.25s, transform 0.25s; }
 .nav-group a:hover, .nav-group a.active, .footer-inner a:hover { color: var(--rose); transform: translateY(-2px); }
 .nav-group a.active { text-decoration: underline; text-underline-offset: 7px; }
 .wordmark { color: var(--purple); line-height: 1; text-align: center; text-decoration: none; white-space: nowrap; }
@@ -157,7 +158,9 @@ h3 { font-size: 1.65rem; }
 .site-footer { padding: 54px 0; background: var(--lavender); }
 .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; width: min(var(--content-width), calc(100% - 48px)); margin: 0 auto; gap: 45px; color: var(--muted); font-size: 0.95rem; }
 .footer-brand p { margin: 8px 0 0; }
-.footer-mark { color: var(--purple) !important; font-size: 1.7rem !important; font-style: italic; }
+.footer-mark { display: block; width: min(280px, 100%); }
+.footer-mark img { display: block; width: 100%; height: auto; }
+.footer-inner a { color: var(--ink); }
 .footer-links, .footer-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
 .footer-links a, .footer-contact a, .footer-brand a { font-size: 0.82rem; }
 .footer-label { margin: 0 0 8px; color: var(--purple); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
