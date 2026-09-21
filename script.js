@@ -3,8 +3,8 @@ const image = (path, alt) => `<img src="https://images.unsplash.com/${path}?auto
 const button = (label, route, secondary = false) => `<a class="button${secondary ? " secondary" : ""}" href="#${route}">${label}</a>`;
 const galleryImages = [
   ["Images/practice.jpg", "Studio Work, reference image by Jaclyn Rae"],
-  ["Images/virginia.jpg", "Live Painting"],
-  ["Images/philadelphia.jpg", "Live Painting"]
+  ["Images/virginia.jpg", "The Classic"],
+  ["Images/philadelphia.jpg", "The Classic"]
 ];
 const pageHeader = (eyebrow, title, intro) => `<header class="page-header"><div class="container"><p class="eyebrow">${eyebrow}</p><h1>${title}</h1>${intro ? `<p class="intro">${intro}</p>` : ""}</div></header>`;
 
