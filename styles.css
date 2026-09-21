@@ -3,11 +3,11 @@
   --paper: #fffdfb;
   --ink: #2d2832;
   --muted: #746b79;
-  --purple: #6f4b83;
-  --purple-dark: #4d315e;
+  --purple: var(--ink);
+  --purple-dark: var(--ink);
   --rose: #c18b8c;
   --line: #ddd1e4;
-  --shadow: 0 18px 45px rgba(73, 49, 82, 0.12);
+  --shadow: 0 18px 45px rgba(45, 40, 50, 0.12);
   --serif: "Playfair Display", Georgia, serif;
   --mono: "DM Mono", Consolas, monospace;
   --content-width: 1120px;
@@ -87,7 +87,7 @@ h3 { font-size: 1.65rem; }
 .hero-note { max-width: 420px; margin: 22px 0 0; color: #f4edf4; font-size: 1.2rem; }
 .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 58px; padding: 15px 28px; border: 1px solid var(--purple); background: var(--purple); color: #fff; font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.07em; text-decoration: none; text-transform: uppercase; transition: background 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s; }
-.button:hover { background: var(--purple-dark); box-shadow: 0 7px 16px rgba(77, 49, 94, 0.22); transform: translateY(-2px); }
+.button:hover { background: var(--purple-dark); box-shadow: 0 7px 16px rgba(45, 40, 50, 0.22); transform: translateY(-2px); }
 .hero .actions > .button:first-child { border-color: var(--ink); background: var(--ink); }
 .hero .actions > .button:first-child:hover { background: #1f1c22; }
 .button.secondary { background: transparent; color: var(--purple-dark); }
