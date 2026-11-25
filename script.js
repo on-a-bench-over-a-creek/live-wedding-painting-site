@@ -2,10 +2,10 @@
 const image = (path, alt) => `<img src="https://images.unsplash.com/${path}?auto=format&fit=crop&w=1100&q=82" alt="${alt}" loading="lazy">`;
 const button = (label, route, secondary = false) => `<a class="button${secondary ? " secondary" : ""}" href="#${route}">${label}</a>`;
 const galleryImages = [
+  ["Images/lancaster.jpg", "The Classic", "Pineapple Manor, Lancaster PA"],
   ["Images/practice.jpg", "Studio Work, reference image by Jaclyn Rae", "Renback Barn, Rochelle VA"],
   ["Images/virginia.jpg", "The Classic", "Renback Barn, Rochelle VA"],
-  ["Images/philadelphia.jpg", "The Classic", "Bartram's Garden, Philadelphia PA"],
-  ["Images/lancaster.jpg", "The Classic", "Pineapple Manor, Lancaster PA"]
+  ["Images/philadelphia.jpg", "The Classic", "Bartram's Garden, Philadelphia PA"]
 ];
 const pageHeader = (eyebrow, title, intro) => `<header class="page-header"><div class="container"><p class="eyebrow">${eyebrow}</p><h1>${title}</h1>${intro ? `<p class="intro">${intro}</p>` : ""}</div></header>`;
 
