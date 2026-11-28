@@ -17,7 +17,7 @@ function aboutPage() {
 }
 function paintingPage() {
   const cards = [
-    ["Choose Your Experience", "Choose the package that best fits your celebration, vision, and the experience you want to create for your guests."],
+    ["Choose Your Experience", `Choose <a class="text-link" href="#packages">the package</a> that best fits your celebration, vision, and the experience you want to create for your guests.`],
     ["Dream It Together", "We’ll meet to get to know your love story, explore your artistic vision, and discuss the details that make your relationship uniquely yours, from your favorite memories to the moments you want captured."],
     ["Gather the Pieces of Your Story", "Photos, keepsakes, favorite places, inside jokes, and little pieces of your life together become the building blocks of your collage. The more personal, the better."],
     ["Capturing the Moment", "On your wedding day, I arrive and set up my creative space before capturing a photo of you in your chosen pose. This becomes the foundation for your live painting."],
