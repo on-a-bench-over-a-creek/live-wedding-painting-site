@@ -111,8 +111,8 @@ h3 { font-size: 1.65rem; }
 .about-bottom img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; }
 
 /* Experience cards */
-.painting-sections { display: grid; grid-template-columns: minmax(0, 900px); justify-content: center; gap: 20px; }
-.painting-card { display: grid; grid-template-columns: 64px 260px 1fr; align-items: start; gap: 24px; min-height: 0; padding: 32px 28px; border-top: 2px solid var(--purple); background: var(--lavender); }
+.painting-sections { display: grid; grid-template-columns: minmax(0, 1120px); justify-content: center; gap: 44px; }
+.painting-card { display: grid; grid-template-columns: 64px 300px 1fr; align-items: start; gap: 32px; min-height: 280px; padding: 48px 42px; border-top: 3px solid var(--purple); background: var(--lavender); }
 .painting-card:nth-child(2) { border-color: var(--rose); background: #f8f1ef; }
 .painting-card:nth-child(3) { border-color: #73816c; background: #f1f4ed; }
 .painting-card .eyebrow { margin: 0; color: var(--purple); font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.14em; }
@@ -197,6 +197,7 @@ h3 { font-size: 1.65rem; }
   .section { padding: 76px 0; }
   .story-grid, .two-column, .contact-layout { grid-template-columns: 1fr; gap: 42px; }
   .painting-sections, .package-grid { grid-template-columns: 1fr; }
+  .painting-card { grid-template-columns: 64px 220px 1fr; gap: 24px; padding: 40px 32px; }
   .gallery-grid { columns: 2; }
   .painting-card:nth-child(2), .painting-card:nth-child(3), .package-card.featured { margin-top: 0; }
   .contact-layout { gap: 50px; }
