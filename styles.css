@@ -104,6 +104,8 @@ h3 { font-size: 1.65rem; }
 .image-frame { border: 1px solid var(--line); padding: 9px; background: #fff; }
 .page-header { padding: 76px 0 62px; border-bottom: 1px solid var(--line); background: var(--lavender); }
 .page-header h1 { max-width: 780px; margin-bottom: 18px; font-size: clamp(2.3rem, 3.5vw, 3.8rem); }
+.experience-header-layout { display: grid; grid-template-columns: 1.4fr 0.8fr; align-items: center; gap: 56px; }
+.experience-header-image { display: block; width: 100%; max-height: 390px; border: 1px solid var(--line); padding: 9px; background: #fff; object-fit: cover; }
 .two-column { display: grid; grid-template-columns: 0.85fr 1.15fr; align-items: center; gap: 85px; }
 .about-image { border: 1px solid var(--line); padding: 12px; background: #fff; box-shadow: var(--shadow); }
 .about-image img { aspect-ratio: 4 / 5; }
@@ -196,6 +198,8 @@ h3 { font-size: 1.65rem; }
   .hero-content { width: min(calc(100% - 48px), var(--content-width)); padding-bottom: 62px; }
   .section { padding: 76px 0; }
   .story-grid, .two-column, .contact-layout { grid-template-columns: 1fr; gap: 42px; }
+  .experience-header-layout { grid-template-columns: 1fr; gap: 30px; }
+  .experience-header-image { max-height: 420px; }
   .painting-sections, .package-grid { grid-template-columns: 1fr; }
   .painting-card { grid-template-columns: 64px 220px 1fr; gap: 24px; padding: 40px 32px; }
   .gallery-grid { columns: 2; }
